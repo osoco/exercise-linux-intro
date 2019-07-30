@@ -1,0 +1,10 @@
+In AWK, gsub(/ /,"_", variable) replaces all blanks with underscores, updating
+the variable itself.
+
+You could end up with something like:
+
+ ls | awk '{new=$0; gsub(/ /,"_",new); printf("mv %s %s\n", $0, new);}'
+
+Who could you actually run it, instead of printing the commands? Pipe it to
+sh, or wrap it inside $().
+
